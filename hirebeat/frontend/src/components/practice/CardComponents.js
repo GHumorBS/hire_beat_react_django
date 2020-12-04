@@ -1,5 +1,6 @@
 import React from "react";
 import Select from "react-select";
+import {Link} from "react-router-dom";
 import techIcon from "../../assets/tech_icon.png";
 
 // Styled components
@@ -54,8 +55,16 @@ export const CardRowHigh = (props) => {
   return <div className="card-row-high">{props.children}</div>;
 };
 
+export const CardRowLow = (props) => {
+  return <div className="card-row-low">{props.children}</div>;
+};
+
 export const CardRowMidHigh = (props) => {
   return <div className="card-row-mid-high">{props.children}</div>;
+};
+
+export const CardRowThirdHigh = (props) => {
+  return <div className="card-row-third-high">{props.children}</div>;
 };
 
 export const CardButton = (props) => {
@@ -64,24 +73,23 @@ export const CardButton = (props) => {
     <button
       className={props.btnClassName ?? "btn btn-warning"}
       style={{
-        WebkitBorderRadius: "1.5rem",
-//        width: props.buttonWidth,
-        width: "18.625rem",
-        height: "3.75rem",
-        borderRadius: "3.125rem",
+        WebkitBorderRadius: "0.8rem",
+        width: props.isAudio ? "13.75rem" : "18.625rem",
+//        height: props.isAudio ? "40px" : "60px",
+        borderRadius: "0.8rem",
         background:
           props.btnClassName && props.btnClassName != "btn btn-warning"
             ? ""
-            : "#FF6B00",
+            : "#56a3fa",
         boxShadow:
           "0px 0px 8px" +
-          (props.btnClassName == "btn btn-success" ? " #14CC75" : "#FF6B00"),
+          (props.btnClassName == "btn btn-success" ? " #14CC75" : "#56a3fa"),
       }}
       onClick={props.onTap}
     >
       <p
         style={{
-          fontFamily: "Lato",
+          fontFamily: "Avenir Next",
           fontStyle: "normal",
           fontWeight: "bold",
           fontSize: "1.2rem",
@@ -105,37 +113,112 @@ export const BglessCardButton = (props) => {
     <CardRowMidHigh>
       <button
         onClick={props.onTap}
+        className={props.btnClassName ?? "btn btn-warning"}
+      style={{
+        WebkitBorderRadius: "0.8rem",
+        width: props.isAudio ? "13.75rem" : "18.625rem",
+//        height: props.isAudio ? "40px" : "60px",
+        borderRadius: "0.8rem",
+        background:
+          props.btnClassName && props.btnClassName != "btn btn-warning"
+            ? ""
+            : "#56a3fa",
+        boxShadow:
+          "0px 0px 8px" +
+          (props.btnClassName == "btn btn-success" ? " #14CC75" : "#56a3fa"),
+      }}
+      >
+        <p
+        style={{
+          fontFamily: "Avenir Next",
+          fontStyle: "normal",
+          fontWeight: "bold",
+          fontSize: "1.2rem",
+          lineHeight: "1.875rem",
+          display: "block",
+          alignItems: "center",
+          textAlign: "center",
+          color: "#FFFFFF",
+          marginBottom: "0px",
+          textTransform: "capitalize",
+        }}
+      >
+        {props.textDisplayed}
+      </p>
+      </button>
+    </CardRowMidHigh>
+  );
+};
+
+export const BglessCardButton1 = (props) => {
+  return (
+    <CardRowLow>
+      <Link to="/pricing" style={{textDecoration: "none"}}>
+      <button
         style={{
           border: "none",
           backgroundColor: "transparent",
           width: props.buttonWidth,
         }}
       >
-        <a style={{ fontSize: "1vw", fontWeight: "bold", color: "#f3a542" }}>
+        <a style={{ fontSize: "1vw", fontWeight: "bold", color: "#FF6B00" }}>
           {props.textDisplayed}
         </a>
       </button>
-    </CardRowMidHigh>
+      </Link>
+    </CardRowLow>
   );
 };
 
 export const RecordDoneButton = (props) => {
-  return (
-    <CardRowHigh>
-      <CardButton
-        onTap={props.onTap}
-        textDisplayed={props.textDisplayed}
-        buttonWidth={props.buttonWidth}
-      />
-    </CardRowHigh>
-  );
+  if (props.isAudio) {
+    return (
+      <CardRowLow>
+        <CardButton
+          onTap={props.onTap}
+          textDisplayed={props.textDisplayed}
+          buttonWidth={props.buttonWidth}
+        />
+      </CardRowLow>
+    )
+  }
+  else {
+    return (
+      <CardRowHigh>
+        <CardButton
+          onTap={props.onTap}
+          textDisplayed={props.textDisplayed}
+          buttonWidth={props.buttonWidth}
+        />
+      </CardRowHigh>
+    );
+  }
 };
 
 export const VideoNumberLinkRow = (props) => {
   return (
     <CardRowMidHigh>
       <div className="d-flex justify-content-around" style={{ width: "100%" }}>
-        <h6>Free video save left: {props.number_of_videos_to_save} </h6>
+        <h6>Free video save left: <h6 style={{color:"#FF6B00", display:"inline"}}>{props.number_of_videos_to_save<0 ? 0:props.number_of_videos_to_save}</h6></h6>
+        {/* <a
+          onClick={props.upgrade}
+          style={{
+            color: "#f3a340",
+            textDecoration: "underline",
+          }}
+        >
+          Upgrade >
+        </a> */}
+      </div>
+    </CardRowMidHigh>
+  );
+};
+
+export const AudioNumberLinkRow = (props) => {
+  return (
+    <CardRowMidHigh>
+      <div className="d-flex justify-content-around" style={{ width: "100%" }}>
+        <h6>Free audio save left: <h6 style={{color:"#FF6B00", display:"inline"}}>{props.number_of_audios_to_save} </h6></h6>
         {/* <a
           onClick={props.upgrade}
           style={{
@@ -154,7 +237,7 @@ export const ButtonContainer = (src, onTap, textDisplayed, btnClassName) => {
   return (
     <div className="setup-card-button-container">
       <CardRow>
-        <img src={src} width={src == techIcon ? "39%" : "40%"} />
+        <img src={src} width={src == techIcon ? "39%" : "40%"} alt="image"/>
       </CardRow>
       <CardRow>
         <CardButton
@@ -162,6 +245,7 @@ export const ButtonContainer = (src, onTap, textDisplayed, btnClassName) => {
           textDisplayed={textDisplayed}
           buttonWidth={"85%"}
           WebkitBorderRadius={"40px"}
+          fontFamily={"Avenir Next"}
           btnClassName={btnClassName ?? "btn btn-warning"}
         />
       </CardRow>
@@ -174,9 +258,10 @@ const s = {
   control: (styles) => ({
     ...styles,
     WebkitBorderRadius: "20px",
-    boxShadow: "2px 8px rgba(70, 137, 250, 0.15)",
+    boxShadow: "0px 4px 25px rgba(70, 137, 250, 0.15)",
     border: "none",
     width: "80%",
+    marginBottom:"5px",
   }),
   dropdownIndicator: () => ({
     color: "#98b8f6",
@@ -203,23 +288,23 @@ const s = {
   }),
 };
 
-export const selectParam = (question, value, onTap, options) => {
+export const selectParam = (question, value, onTap, options, className) => {
   return (
     <CardRow className="vertically-center">
-      <div className="col-sm-1" />
+      <div className="col-3" />
       <QuestionCol>
-        <h5>{question}</h5>
+        <h5 className="practice-txt">{question}</h5>
       </QuestionCol>
       <SelectCol>
-        <Select value={value} onChange={onTap} options={options} styles={s} />
+        <Select className={className} value={value} onChange={onTap} options={options} styles={s} isSearchable={false}/>
       </SelectCol>
-      <div className="col-sm-1" />
+      <div className="col-3" />
     </CardRow>
   );
 };
 
 export const QuestionCol = (props) => {
-  return <div className="col-6">{props.children}</div>;
+  return <div className="col-4">{props.children}</div>;
 };
 
 export const SelectCol = (props) => {

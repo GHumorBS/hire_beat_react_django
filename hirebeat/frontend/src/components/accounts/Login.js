@@ -1,9 +1,8 @@
 import React, {Component} from "react";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {login, exchangeToken} from "../../redux/actions/auth_actions";
-import {CardButton} from "../practice/CardComponents";
 import SocialButtons from "./SocialButtons";
 import MediaQuery from 'react-responsive';
 import { useEffect } from "react";
@@ -62,7 +61,7 @@ export class Login extends Component {
       if (this.props.user.groups[0] == "reviewers") {
         return <Redirect to="/review"/>;
       } else {
-        return <Redirect to="/"/>;
+        return <Redirect to="/dashboard"/>;
       }
     }
     const {username, password} = this.state;
@@ -83,7 +82,7 @@ export class Login extends Component {
               <div className="container"
                    style={{paddingTop: "5rem"}}>
 
-                <h1 className="display-4 text-white text-center">
+                <h1 className="display-4 text-white text-center" style={{fontSize:"3rem", fontWeight:"600"}}>
                   Welcome back!
                 </h1>
 
@@ -128,10 +127,12 @@ export class Login extends Component {
                             onChange={this.onChange}
                             value={username}
                             style={{
+                              fontFamily: "Avenir Next",
                               background: "#FFFFFF",
-                              border: "1px solid #E5E5E5",
+                              border: "0.5px solid #E5E5E5",
                               borderRadius: "0.5rem",
                               paddingLeft: "1rem",
+                              boxShadow:"0px 0px 50px rgba(70, 137, 250, 0.1)"
                             }}
                             required/>
                       </div>
@@ -145,10 +146,12 @@ export class Login extends Component {
                             onChange={this.onChange}
                             value={password}
                             style={{
+                              fontFamily: "Avenir Next",
                               background: "#FFFFFF",
-                              border: "1px solid #E5E5E5",
+                              border: "0.5px solid #E5E5E5",
                               borderRadius: "0.5rem",
                               paddingLeft: "1rem",
+                              boxShadow:"0px 0px 50px rgba(70, 137, 250, 0.1)"
                             }}
                             required/>
                       </div>
@@ -157,7 +160,7 @@ export class Login extends Component {
                         <a
                             href="/register"
                             className="navbar-font"
-                            style={{textDecoration: "underline", color: "#FF6B00", fontWeight: "300"}}
+                            style={{textDecoration: "underline", color: "#FF6B00", fontWeight: "300", fontFamily: "Avenir Next", fontSize:"1rem"}}
                         >
                           Create account
                         </a>
@@ -167,6 +170,8 @@ export class Login extends Component {
                             target="_blank"
                             className="navbar-font"
                             style={{
+                              fontSize:"1rem",
+                              fontFamily: "Avenir Next",
                               color: "#7D7D7D",
                               fontWeight: "300"
                             }}
@@ -182,17 +187,10 @@ export class Login extends Component {
                       >
                         <button
                             type="submit"
-                            className="navbar-font"
-                            style={{
-                              WebkitBorderRadius: "3rem",
-                              width: "100%",
-                              height: "3rem",
-                              color: "white",
-                              background: "#FF6B00",
-                              border: "none",
-                              boxShadow: "0 0 0.5rem #FF6B00",
-                            }}
+                            className="default-btn"
+                            style={{width:"100%", fontSize:'1rem', fontWeight:'bold'}}
                         >
+                          <i className="bx bxs-hot"></i>
                           Log in
                         </button>
 
@@ -203,7 +201,8 @@ export class Login extends Component {
                         data-content="Or use"
                         style={{
                           marginTop:"4rem",
-                          marginBottom:"2rem"
+                          marginBottom:"2rem",
+                          fontFamily: "Avenir Next",
                         }}
                     />
 

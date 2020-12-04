@@ -43,14 +43,18 @@ This files table contents are outlined below>>>>>
 /*================================================
 Default CSS
 =================================================*/
-@import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Avenir Next:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap");
+* {
+  font-family: 'Avenir Next', sans-serif;
+}
+
 body {
   color: #080a3c;
   background-color: #ffffff;
   padding: 0;
   margin: 0;
   font-size: 15px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Avenir Next", sans-serif;
 }
 
 a {
@@ -157,19 +161,29 @@ p:last-child {
   text-align: center;
   max-width: 620px;
   margin-left: auto;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
   margin-right: auto;
 }
 
 .section-title h2 {
+  color: #090D3A;
   margin-bottom: 0;
-  font-size: 40px;
+  font-size: 42px;
   font-weight: 600;
+  line-height: 48px;
+  padding-bottom: 1.5rem;
+}
+
+.section-title p {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  padding-bottom: 2rem;
 }
 
 .section-title h2 span {
   display: inline-block;
-  color: #ff612f;
+  color: #56a3fa;
 }
 
 /* default-btn&optional-btn */
@@ -182,6 +196,26 @@ p:last-child {
   z-index: 1;
   color: #ffffff;
   background-color: #56a3fa;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 15px;
+  padding-left: 50px;
+  padding-right: 25px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+.default-btn1 {
+  border: none;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  overflow: hidden;
+  z-index: 1;
+  color: #ffffff;
+  background-color: #080a3c;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   border-radius: 5px;
@@ -221,6 +255,7 @@ p:last-child {
 }
 
 .default-btn:hover, .default-btn:focus {
+  background-color: #ff612f;
   color: #ffffff;
   -webkit-box-shadow: 0px 5px 28.5px 1.5px rgba(19, 196, 161, 0.3) !important;
           box-shadow: 0px 5px 28.5px 1.5px rgba(19, 196, 161, 0.3) !important;
@@ -475,15 +510,15 @@ Preloader Area CSS
 Navbar Area CSS
 =================================================*/
 .navbar-area {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
   background-color: transparent;
   height: auto;
   z-index: 1040;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .navbar-area .container {
@@ -922,13 +957,12 @@ Navbar Area CSS
   .navbar-area {
     background-color: #ffffff;
     position: relative;
-    border-bottom: 1px solid #eeeeee;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
   .navbar-area.is-sticky {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 }
 
@@ -2214,7 +2248,7 @@ FunFacts Area CSS
 =================================================*/
 .funfacts-inner {
   max-width: 1000px;
-  margin-top: 140px;
+  margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -2236,6 +2270,7 @@ FunFacts Area CSS
 }
 
 .single-funfacts p {
+  font-weight: 500;
   line-height: initial;
   margin-bottom: 0;
 }
@@ -2273,10 +2308,12 @@ FunFacts Area CSS
   position: relative;
   margin-left: auto;
   margin-top: 40px;
+  margin-bottom: 40px;
   margin-right: auto;
 }
 
 .contact-cta-box h3 {
+  color:#090D3A;
   margin-bottom: 0;
   font-size: 22px;
   font-weight: 600;
@@ -2291,7 +2328,8 @@ FunFacts Area CSS
 .contact-cta-box .default-btn {
   background-color: #56a3fa;
   position: absolute;
-  right: 50px;
+  padding-left: 25px;
+  right: 30px;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -2318,8 +2356,9 @@ Features Area CSS
 
 .single-features-box {
   text-align: center;
+  padding-bottom: 30px;
+  padding-top: 45px;
   margin-bottom: 30px;
-  margin-top: 45px;
 }
 
 .single-features-box .icon {
@@ -2391,7 +2430,7 @@ Features Area CSS
 .features-box .icon {
   width: 85px;
   height: 85px;
-  background-color: #bce9e5;
+  background-color: #bcd2fd;
   color: #56a3fa;
   text-align: center;
   font-size: 45px;
@@ -2665,7 +2704,8 @@ Features Area CSS
   font-size: 30px;
   text-align: center;
   border-radius: 100%;
-  color: #ffffff;
+  background-color: #56a3fa;
+  color: #fff;
   margin-bottom: 25px;
 }
 
@@ -2921,8 +2961,8 @@ Feedback Area CSS
 
 .single-feedback-item {
   position: relative;
-  margin-top: 95px;
-  margin-bottom: 30px;
+  margin-top: 50px;
+  margin-bottom: 0px;
 }
 
 .single-feedback-item img {
@@ -2946,6 +2986,9 @@ Feedback Area CSS
 }
 
 .single-feedback-item .feedback-desc p {
+  font-size: 15px;
+  line-height: 21px;
+  color: #4A6F8A;
   margin-bottom: 0;
 }
 
@@ -3199,12 +3242,14 @@ Pricing Area CSS
 }
 
 .single-pricing-table .pricing-header h3 {
+  color: #090D3A;
   margin-bottom: 0;
   font-size: 22px;
   font-weight: 500;
 }
 
 .single-pricing-table .price {
+  color: #090D3A;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   padding-top: 8px;
@@ -3216,6 +3261,7 @@ Pricing Area CSS
 }
 
 .single-pricing-table .price sup {
+  color: #090D3A;
   top: -18px;
   left: -5px;
   font-size: 18px;
@@ -3223,7 +3269,7 @@ Pricing Area CSS
 }
 
 .single-pricing-table .price sub {
-  bottom: 8px;
+  bottom: 0px;
   color: #4a6f8a;
   padding-right: 5px;
   font-size: 14px;
@@ -3241,9 +3287,10 @@ Pricing Area CSS
 }
 
 .single-pricing-table .pricing-features li {
+  font-size: 14px;
   margin-bottom: 10px;
   position: relative;
-  color: #444683;
+  color: #4a6f8a;
   padding-left: 21px;
 }
 
@@ -3396,7 +3443,7 @@ Pricing Area CSS
 }
 
 .col-lg-4:nth-child(3) .single-pricing-table .btn-box .default-btn:hover i, .col-lg-4:nth-child(3) .single-pricing-table .btn-box .default-btn:focus i {
-  color: #56a3fa;
+  color: #ffff;
 }
 
 /*================================================
@@ -5356,7 +5403,7 @@ Features Area CSS
   border-radius: 30px;
   text-align: center;
   padding: 70px;
-  background-color: #ff612f;
+  background-color: #56a3fa;
 }
 
 .subscribe-content h2 {
@@ -5400,51 +5447,35 @@ Features Area CSS
   border: none;
   height: 50px;
   border-radius: 5px;
-  color: #ffffff;
-  background-color: #c32f00;
+  color: #000;
+  background-color: #ffffff;
   padding: 0 0 0 15px;
   font-size: 14px;
   font-weight: 500;
 }
 
 .subscribe-content form .input-newsletter::-webkit-input-placeholder {
-  color: #ffffff;
+  color: #999999;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 .subscribe-content form .input-newsletter:-ms-input-placeholder {
-  color: #ffffff;
+  color: #999999;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 .subscribe-content form .input-newsletter::-ms-input-placeholder {
-  color: #ffffff;
+  color: #999999;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 .subscribe-content form .input-newsletter::placeholder {
-  color: #ffffff;
+  color: #999999;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-}
-
-.subscribe-content form .input-newsletter:focus::-webkit-input-placeholder {
-  color: transparent;
-}
-
-.subscribe-content form .input-newsletter:focus:-ms-input-placeholder {
-  color: transparent;
-}
-
-.subscribe-content form .input-newsletter:focus::-ms-input-placeholder {
-  color: transparent;
-}
-
-.subscribe-content form .input-newsletter:focus::placeholder {
-  color: transparent;
 }
 
 .subscribe-content form button {
@@ -5474,7 +5505,7 @@ Features Area CSS
 }
 
 .subscribe-content form button:hover, .subscribe-content form button:focus {
-  background-color: #13c4a1;
+  background-color: #ff612f;
 }
 
 .subscribe-content form button:hover i, .subscribe-content form button:focus i {
@@ -5537,11 +5568,15 @@ Free Trial Area CSS
 }
 
 .free-trial-content h2 {
+  color:'#090D3A';
   font-size: 40px;
   font-weight: 600;
+  line-height: 46px;
 }
 
 .free-trial-content p {
+  font-size: 15px;
+  line-height: 21px;
   margin-top: 20px;
 }
 
@@ -5912,7 +5947,7 @@ Footer Area CSS
 }
 
 .single-footer-widget p {
-  color: #acc5db;
+  color: #ffffff;
 }
 
 .single-footer-widget .services-list {
@@ -5922,7 +5957,7 @@ Footer Area CSS
 }
 
 .single-footer-widget .services-list li {
-  color: #acc5db;
+  color: #ffffff;
   margin-bottom: 10px;
 }
 
@@ -5932,11 +5967,11 @@ Footer Area CSS
 
 .single-footer-widget .services-list li a {
   display: inline-block;
-  color: #acc5db;
+  color: #ffffff;
 }
 
 .single-footer-widget .services-list li a:hover {
-  color: #13c4a1;
+  color: #ff612f;
   padding-left: 5px;
 }
 
@@ -5947,7 +5982,7 @@ Footer Area CSS
 }
 
 .single-footer-widget .support-list li {
-  color: #acc5db;
+  color: #ffffff;
   margin-bottom: 10px;
 }
 
@@ -5957,11 +5992,11 @@ Footer Area CSS
 
 .single-footer-widget .support-list li a {
   display: inline-block;
-  color: #acc5db;
+  color: #ffffff;
 }
 
 .single-footer-widget .support-list li a:hover {
-  color: #13c4a1;
+  color: #ff612f;
   padding-left: 5px;
 }
 
@@ -5982,15 +6017,15 @@ Footer Area CSS
 
 .single-footer-widget .footer-contact-info li a {
   display: inline-block;
-  color: #acc5db;
+  color: #ffffff;
 }
 
 .single-footer-widget .footer-contact-info li a:hover {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 .single-footer-widget .footer-contact-info li span {
-  color: #acc5db;
+  color: #ffffff;
 }
 
 .single-footer-widget .social {
@@ -6001,6 +6036,18 @@ Footer Area CSS
 }
 
 .single-footer-widget .social li {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.single-footer-widget .social1 {
+  padding-left: 0;
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
+.single-footer-widget .social1 li {
   display: inline-block;
   margin-right: 8px;
 }
@@ -6071,7 +6118,7 @@ Footer Area CSS
 }
 
 .copyright-area p a:hover {
-  color: #13c4a1;
+  color: #ff612f;
 }
 
 @-webkit-keyframes imageChange {
@@ -6196,16 +6243,21 @@ SaaS Home Page CSS
 
 .saas-banner .hero-content h1 {
   color: #ffffff;
-  font-size: 52px;
+  font-size: 50px;
   font-weight: 600;
+  padding-bottom: 2rem;
   margin: 0;
+  line-height: 56px;
 }
 
 .saas-banner .hero-content p {
   color: #ffffff;
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 30px;
   margin-bottom: 35px;
+  font-weight: 500;
+  line-height: 26px;
+  padding-bottom: 2rem;
 }
 
 .saas-banner .hero-content .default-btn {
@@ -6557,8 +6609,8 @@ SaaS Home Page CSS
 /* Overview section */
 .overview-item {
   margin-bottom: 20px;
-  border-bottom: 1px solid #edf0f7;
-  padding-bottom: 20px;
+  border-bottom: none;
+  padding-bottom: 60px;
 }
 
 .overview-item:last-child {
@@ -6582,11 +6634,15 @@ SaaS Home Page CSS
 }
 
 .overview-content h3 {
+  color: #090D3A;
   font-size: 25px;
   font-weight: 600;
 }
 
 .overview-content p {
+  color: #4A6F8A;
+  font-size: 16px;
+  font-weight: 500;
   margin: 0;
 }
 
@@ -6596,6 +6652,8 @@ SaaS Home Page CSS
 }
 
 .overview-content ul li {
+  font-size: 16px;
+  font-weight: 500;
   list-style-type: none;
   margin-bottom: 6px;
   padding-left: 20px;
@@ -6608,7 +6666,7 @@ SaaS Home Page CSS
 }
 
 .overview-content ul li i {
-  color: #56a3fa;
+  color: #13c4a1;
   position: absolute;
   left: 0;
   top: 3px;
